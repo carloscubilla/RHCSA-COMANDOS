@@ -54,7 +54,16 @@ nmcli connection add con-name iturbe type ethernet ifname enp7s0 ip4 192.168.33.
 ```poweshell
 nmcli connection modify iturbe ipv4.dns 8.8.8.8
 ```
-##### Comando para agregar solo tra DNS cuando ya tenemos una DNS asignada a connection-name
+##### Comando para agregar  otra DNS cuando ya tenemos una DNS asignada a connection-name
 ```poweshell
 nmcli connection modify iturbe +ipv4.dns 9.9.9.9
 ```
+##### Verificar el autoconect
+```poweshell
+nmcli connection modify iturbe connettion.autoconnect no
+```
+> Esto activa el autoconnect
+> ```poweshell
+nmcli connection modify iturbe connettion.autoconnect yes
+```
+> Esto activa el autoconnect
