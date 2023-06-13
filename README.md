@@ -62,8 +62,14 @@ nmcli connection modify iturbe +ipv4.dns 9.9.9.9
 ```poweshell
 nmcli connection modify iturbe connettion.autoconnect no
 ```
-> Esto activa el autoconnect
-> ```poweshell
+> Esto desactiva el autoconnect (Lo recomendable es tenerlo desconectado)
+```poweshell
 nmcli connection modify iturbe connettion.autoconnect yes
 ```
 > Esto activa el autoconnect
+
+
+##### Path en donde se encuentra el archivo de configuracion de red
+```poweshell
+cd /etc/sysconfig/network-scripts
+```
