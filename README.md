@@ -88,3 +88,11 @@ cat /etc/hostname
 hostnamectl set-hostname <name>
 ```
 > Sirve para ver el nombre del host
+##### Comando para que se visualice el cambio de host
+```poweshell
+bash
+```
+##### Comando para buscar resolucion de nombre y comprobar que esté bien
+```poweshell
+getent hosts <name>
+```
