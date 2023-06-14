@@ -73,3 +73,8 @@ nmcli connection modify iturbe connettion.autoconnect yes
 ```poweshell
 cd /etc/sysconfig/network-scripts
 ```
+##### Configuracion de nombres de host y resolucion de nombres
+```poweshell
+hostname
+```
+> Sirve para ver el nombre del host
