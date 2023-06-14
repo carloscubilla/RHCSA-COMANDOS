@@ -78,3 +78,13 @@ cd /etc/sysconfig/network-scripts
 hostname
 ```
 > Sirve para ver el nombre del host
+##### Path en donde se ubica el nombre del host
+```poweshell
+cat /etc/hostname
+```
+> No se debe editar manualmente
+##### Comando para cambiar el nombre del host
+```poweshell
+hostnamectl set-hostname <name>
+```
+> Sirve para ver el nombre del host
