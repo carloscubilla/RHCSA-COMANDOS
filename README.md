@@ -96,3 +96,7 @@ bash
 ```poweshell
 getent hosts <name>
 ```
+##### Comando para ver ip del server <name>
+```poweshell
+ping -c2 <name>
+```
