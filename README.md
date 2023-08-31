@@ -157,3 +157,7 @@ date -d "+180 days" +%F
 ```poweshell
 chage -E 2022-09-06 operator1
 ```
+##### Comando para verificar que la fecha de vencimiento de la cuenta se haya establecido correctamente
+```poweshell
+chage -l cmcf
+```
