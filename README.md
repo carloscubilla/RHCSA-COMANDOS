@@ -100,3 +100,40 @@ getent hosts <name>
 ```poweshell
 ping -c2 <name>
 ```
+
+## GESTION DE USUARIOS LOCALES
+
+##### Comando para cambiar de usuario
+```poweshell
+su - cmcf
+```
+
+##### Comando para elevar privilegios a root
+```poweshell
+sudo -i
+```
+##### Comando para agregar usuarios
+```poweshell
+useradd cmcf
+```
+##### Comando poner contraseña a un usuario
+```poweshell
+passwd cmcf <press enter>
+```
+##### Comando para agregar usuarios al grupo wheel
+```poweshell
+usermod -aG wheel cmcf
+```
+##### Comando para crear archivo en el directorio /etc/sudoers.d/
+> En este directorio almacenamos los archivos en donde se indican permisos para usuarios o grupo de usuarios
+```poweshell
+echo "%sysadmin ALL=(ALL) ALL" >> /etc/sudoers.d/sysadmin
+```
+##### Comando para bloquear un usuario
+```poweshell
+usermod -L cmcf
+```
+##### Comando para desbloquear un usuario
+```poweshell
+usermod -U cmcf
+```
