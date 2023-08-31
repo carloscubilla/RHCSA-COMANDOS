@@ -125,7 +125,7 @@ passwd cmcf <press enter>
 usermod -aG wheel cmcf
 ```
 ##### Comando para crear archivo en el directorio /etc/sudoers.d/
-> En este directorio almacenamos los archivos en donde se indican permisos para usuarios o grupo de usuarios
+> En este directorio almacenamos los archivos en donde se indican permisos para usuarios o grupo de usuarios, en este ejemplo es para el grupo "sysadmin"
 ```poweshell
 echo "%sysadmin ALL=(ALL) ALL" >> /etc/sudoers.d/sysadmin
 ```
