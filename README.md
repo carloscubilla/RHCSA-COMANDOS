@@ -137,3 +137,23 @@ usermod -L cmcf
 ```poweshell
 usermod -U cmcf
 ```
+##### Comando para establecer la vigencia máxima de la contraseña del usuario 
+> El comando de abajo establece una vigencia maxima de 30 dias a la contraseña del usuario cmcf
+```poweshell
+chage -M 30 cmcf
+```
+##### Comando para un cambio de contraseña en el primer inicio de sesión en la cuenta 
+> El comando de abajo fuerza el cambio de contraseña en el primer inicio de sesion del usuario cmcf
+```poweshell
+chage -d 0 cmcf
+```
+##### Comando para determinar la fecha de vencimiento en 180 dias a partir de la fecha del sistema operativo
+> El comando imprime la fecha actual + los dias que queremos de vigencia
+```poweshell
+date -d "+180 days" +%F
+```
+
+##### Comando para que caduque en la fecha que se muestra en el paso anterior. 
+```poweshell
+chage -E 2022-09-06 operator1
+```
