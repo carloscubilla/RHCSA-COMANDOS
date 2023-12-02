@@ -39,6 +39,9 @@ touch /.autorelabel
 ```
 #### 9- Por ultimo salimos del entorno controlado con el comando "exit# y reiniciamos el sistema con el comando "reboot#
 
+![imagen5](/img/img5.png)
+
+
 ## NMCLI - REDES
 
 ##### Comando para editar archivo de red
