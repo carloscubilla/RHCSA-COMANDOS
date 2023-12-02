@@ -8,7 +8,36 @@
 ![imageninicio](/img/img1.png)
 
 
-##### 3 
+##### 3- Agregamos "rd .break" al final de la siguiente linea
+> Se indica en imagen
+
+![imagen2](/img/img2.png)
+
+##### 4- Presiona las teclas "ctrl + x" para guardar los cambios, el sistema iniciara en modo de emergencia, como podemos ver en la siguiente imagen
+
+![imagen3](/img/img3.png)
+
+##### 5- Realizamos un remontaje del sysroot en modo lectura y escritura, utilizamos el siguiente comando
+```poweshell
+mount -o remount,rw /sysroot
+```
+
+###### 6- Iniciamos un enorno controlado para realizar el cambio de contraseña, utilizamos el siguiente comando
+```poweshell
+chroot /sysroot
+```
+##### 7- Luego insertamos el comando para cambiar contraseña
+```poweshell
+passwd
+```
+![imagen3](/img/img4.png)
+
+
+#### 8- Cambiamos la contraseña y nos quedaria un ultimo paso que es un reetiquetado del sistema al momento del siguiente reinicio
+```poweshell
+touch /.autorelabel
+```
+#### 9- Por ultimo salimos del entorno controlado con el comando "exit# y reiniciamos el sistema con el comando "reboot#
 
 ## NMCLI - REDES
 
