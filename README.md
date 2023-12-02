@@ -1,5 +1,15 @@
 # RHCSA-COMANDOS
 
+#### Iniciar el sistema operativo en modo seguro rescate o emergencia y cambiar contraseña de root
+
+##### 1- Reiniciar el sistema operativo y presionar f10
+
+##### 2- Precionar la tecla "e" para editar el grub de inicio
+![imageninicio](/img/img1.png)
+
+
+##### 3 
+
 ## NMCLI - REDES
 
 ##### Comando para editar archivo de red
