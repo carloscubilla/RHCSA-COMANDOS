@@ -8,7 +8,7 @@
 ![imageninicio](/img/img1.png)
 
 
-##### 3- Agregamos "rd .break" al final de la siguiente linea
+##### 3- Agregamos "rd.break" al final de la siguiente linea
 > Se indica en imagen
 
 ![imagen2](/img/img2.png)
