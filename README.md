@@ -119,6 +119,24 @@ cd /etc/sysconfig/network-scripts
 ```poweshell
 hostname
 ```
+
+#### Comandos para agregar repositorios
+
+##### Comando para instalar yum-utils
+```poweshell
+dnf install yum-utils
+```
+##### Comando para agregar un repositorio
+> Esto agrega el repo y por defecto lo deja disable
+```poweshell
+yum-config-manager --add-repo=http://rhel9master.labrhel.com/repos/base.repo
+```
+##### Comando para activar el repositorio
+```poweshell
+yum-config-manager --enable base
+```
+
+
 > Sirve para ver el nombre del host
 ##### Path en donde se ubica el nombre del host
 ```poweshell
