@@ -122,6 +122,37 @@ hostname
 
 #### Comandos para agregar repositorios
 
+##### Como agregar un repositorio local en un apache httpd
+
+##### 1. Instalar apache
+```poweshell
+yum install -y httpd
+```
+
+##### 2. Iniciar apache y hacer que inicie con el sistema.
+```poweshell
+systemctl start http ; systemctl enable --now httpd
+```
+
+##### 3. Agregar regla al firewall para publicar nuestra web
+```poweshell
+firewall-cmd --permanent --add-service=http
+```
+
+```poweshell
+firewall-cmd --reload
+```
+
+##### 3. Descargar repositorio appstream y baseos
+```poweshell
+/usr/bin/reposync --repoid=appstream -p /var/www/html/repos/ --downloadcomps --download-metadata
+```
+
+```poweshell
+/usr/bin/reposync --repoid=baseos -p /var/www/html/repos/ --downloadcomps --download-metadata
+```
+
+
 ##### Comando para instalar yum-utils
 ```poweshell
 dnf install yum-utils
@@ -135,6 +166,9 @@ yum-config-manager --add-repo=http://rhel9master.labrhel.com/repos/base.repo
 ```poweshell
 yum-config-manager --enable base
 ```
+
+
+
 
 
 > Sirve para ver el nombre del host
