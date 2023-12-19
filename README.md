@@ -143,7 +143,7 @@ firewall-cmd --permanent --add-service=http
 firewall-cmd --reload
 ```
 
-##### 3. Descargar repositorio appstream y baseos
+##### 4. Descargar repositorio appstream y baseos
 ```poweshell
 /usr/bin/reposync --repoid=appstream -p /var/www/html/repos/ --downloadcomps --download-metadata
 ```
@@ -151,7 +151,6 @@ firewall-cmd --reload
 ```poweshell
 /usr/bin/reposync --repoid=baseos -p /var/www/html/repos/ --downloadcomps --download-metadata
 ```
-
 
 ##### Comando para instalar yum-utils
 ```poweshell
@@ -167,6 +166,27 @@ yum-config-manager --add-repo=http://rhel9master.labrhel.com/repos/base.repo
 yum-config-manager --enable base
 ```
 
+
+### LISTAR SERVICIOS Y VERIFICARLOS CON "SYSTEMCTL"
+
+##### Comando para listar los socket y servicios con todos sus estados
+```poweshell
+systemctl list-units-files
+```
+
+##### Comando para listar los servicios con todos sus estados
+```poweshell
+systemctl list-units -t service
+```
+
+##### Comando para listar socket con  estados activos 
+```poweshell
+systemctl list-unit-files -t socket
+```
+##### Comando para listar socket con todos sus estados
+```poweshell
+systemctl list-unit-files -t socket --all
+```
 
 
 
