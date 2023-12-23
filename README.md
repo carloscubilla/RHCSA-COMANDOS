@@ -187,6 +187,28 @@ systemctl list-unit-files -t socket
 ```poweshell
 systemctl list-unit-files -t socket --all
 ```
+##### Comando para listar dependencias de un servicio
+```poweshell
+systemctl list-dependencies httpd
+```
+
+
+##### Comando para ver cual es el target por defecto.
+```poweshell
+systemctl get-default
+```
+##### Comando para desabilitar la interfaz grafica si es que instalamos como server with GUI
+```poweshell
+systemctl isolate multi-user.target
+```
+##### Comando para habilitar la interfaz grafica.
+```poweshell
+systemctl isolate graphical.target
+```
+##### Comando para cambiar el target por defecto
+```poweshell
+systemctl get-default <presionar TAB 2 veces>
+```
 
 
 
@@ -214,6 +236,19 @@ getent hosts <name>
 ```poweshell
 ping -c2 <name>
 ```
+### Enmascaramiento de servicio
+##### Comando para enmascarar un servicio
+```poweshell
+systemctl mask sshd.service
+```
+
+##### Comando para enmascarar un servicio
+```poweshell
+systemctl unmask sshd.service
+```
+
+
+
 
 ## GESTION DE USUARIOS LOCALES
 
