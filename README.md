@@ -247,6 +247,70 @@ systemctl mask sshd.service
 systemctl unmask sshd.service
 ```
 
+### CREACION DE PARTICIONES CON "parted" (Es mas dificil)
+
+##### Comando para listar discos (nos dice como esta particionado y el tamaño)
+```poweshell
+lsblk
+```
+##### Comando para ver las particiones y los tipos de particiones
+```poweshell
+cat /proc/partitions
+```
+
+##### Comando para ver los tamaños de cualquier particion que seleccionemos
+```poweshell
+parted /dev/sda print
+```
+
+##### Comando para ver las particiones y los tipos de particiones en MB
+```poweshell
+parted /dev/sda unit MB print free
+```
+
+##### Comando para asignar el tipo de particionamiento para el disco, en este caso gpt
+```poweshell
+parted /dev/sdb mklabel gpt
+```
+
+##### Comando para crear una particion en el disco sdc
+```poweshell
+parted /dev/sdc mkpart primary ext4 200MB 400MB
+```
+
+##### Comando para guardar los ambios y que se visualicen
+```poweshell
+udevadm
+```
+
+### CREACION DE PARTICIONES CON "fdisk" 
+> Tener en cuenta que si la particion tiene Disklabel msdos se utiliza el comando "fdisk" si es Disklabel gpt se utiliza otro comando
+
+##### Comando para editar o hacer particiones msdos
+```poweshell
+fdisk /dev/sdc
+```
+
+##### Comando para editar o hacer particiones gpt
+```poweshell
+gdisk /dev/sdc
+```
+
+
+##### Comando para editar fstab
+```poweshell
+ vim /etc/fstab
+```
+> Una vez que editamos y agregamos todo a nuestro sistema de archivos utilizamos el siguiente comando para cargar la configuracion
+
+```poweshell
+systemctl daemon-reload
+```
+
+##### Montamos el sistema de archivos y verificamos que no haya errores
+```poweshell
+mount -a
+```
 
 
 
