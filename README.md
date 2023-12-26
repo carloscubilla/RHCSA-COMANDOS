@@ -253,6 +253,14 @@ systemctl unmask sshd.service
 ```poweshell
 lsblk
 ```
+
+##### Comando para ver mas opciones del sistema de archivos
+```poweshell
+lsblk -fp
+```
+```poweshell
+lsblk -fs
+```
 ##### Comando para ver las particiones y los tipos de particiones
 ```poweshell
 cat /proc/partitions
@@ -311,6 +319,13 @@ systemctl daemon-reload
 ```poweshell
 mount -a
 ```
+
+##### Comando para darle un label a la particion nueva
+```poweshell
+xfs_admin -L <xfs.nombre> /dev/sdb1
+
+```
+
 
 
 
