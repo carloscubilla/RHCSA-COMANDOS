@@ -288,7 +288,7 @@ parted /dev/sdc mkpart primary ext4 200MB 400MB
 
 ##### Comando para guardar los ambios y que se visualicen
 ```poweshell
-udevadm
+udevadm settle
 ```
 
 ### CREACION DE PARTICIONES CON "fdisk" 
@@ -323,8 +323,17 @@ mount -a
 ##### Comando para darle un label a la particion nueva
 ```poweshell
 xfs_admin -L <xfs.nombre> /dev/sdb1
-
 ```
+
+
+##### Comando para crear un grupo de vulumenes (Volume group)
+```poweshell
+vgcreate carlos1 /dev/sdb1 /dev/sdb2
+```
+
+
+
+
 
 
 
