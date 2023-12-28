@@ -325,11 +325,21 @@ mount -a
 xfs_admin -L <xfs.nombre> /dev/sdb1
 ```
 
+##### Comando para crear un volumen fisico (phisical Volume)
+```poweshell
+pvcreate /dev/sdb1
+```
 
 ##### Comando para crear un grupo de vulumenes (Volume group)
 ```poweshell
 vgcreate carlos1 /dev/sdb1 /dev/sdb2
 ```
+
+##### Comando para crear un volumen logico (logical volume)
+```poweshell
+lvcreate carlos1 -n datos_carlos -L 700M
+```
+
 
 
 
