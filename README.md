@@ -335,6 +335,11 @@ pvcreate /dev/sdb1
 vgcreate carlos1 /dev/sdb1 /dev/sdb2
 ```
 
+##### Comando para crear un volumen de grupo con phisical extend diferente a 4M
+```poweshell
+vgcreate -s 8m vg_data /dev/sdb1 /dev/sdb2
+```
+
 ##### Comando para crear un volumen logico (logical volume)
 ```poweshell
 lvcreate carlos1 -n datos_carlos -L 700M
