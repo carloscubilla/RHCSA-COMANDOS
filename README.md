@@ -351,7 +351,12 @@ vgcreate -s 8m vg_data /dev/sdb1 /dev/sdb2
 lvcreate carlos1 -n datos_carlos -L 700M
 ```
 
-
+##### Comando para extender un volumen logico (logical volume)
+> Primero hay que tener en cuenta que debemos asignar volumenes fisicos al grupo de volumen
+> La opcion -t hace un test  nos dice si esta todo correcto o hemos cometido un error
+```poweshell
+lvextend /dev/vg_data/vg_data1 -L +10 -r -t
+```
 
 
 
