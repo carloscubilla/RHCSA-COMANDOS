@@ -290,6 +290,12 @@ parted /dev/sdc mkpart primary ext4 200MB 400MB
 ```poweshell
 udevadm settle
 ```
+##### Comando para guardar los ambios y que se visualicen
+> Es casi lo mismo que "udevadm settle" y a veces es mas efectivo
+```poweshell
+partprobe -s
+```
+
 
 ### CREACION DE PARTICIONES CON "fdisk" 
 > Tener en cuenta que si la particion tiene Disklabel msdos se utiliza el comando "fdisk" si es Disklabel gpt se utiliza otro comando
