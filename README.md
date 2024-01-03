@@ -358,10 +358,46 @@ lvcreate carlos1 -n datos_carlos -L 700M
 lvextend /dev/vg_data/vg_data1 -L +10 -r -t
 ```
 
+## COMO EXTERDER MEMORIS SWAP
+
+##### Comando para CREAR volumenes GPT para la memoria swap
+```poweshell
+gdisk
+```
+##### Comando para guardar los ambios y que se visualice lo creado
+```poweshell
+udevadm settle
+```
+
+##### Comando para extender el grupo de volumenes 
+```poweshell
+vgextend rhel /dev/sdb1 /dev/sdb2
+```
+
+##### Comando para dejar en cero o apagar la memoria swap
+> Se utiliza -v para visializar la salida del comando
+```poweshell
+swapoff -v /dev/rhel/swap
+```
+
+##### Comando para extender un volumen logico (logical volume)
+> Primero hay que tener en cuenta que debemos asignar volumenes fisicos al grupo de volumen
+> La opcion -t hace un test  nos dice si esta todo correcto o hemos cometido un error no realiza los cambios
+```poweshell
+lvextend /dev/rhel/swap -l +100%free -r -t
+```
+
+> Tambien se pueden utilizar las opciones para agregar por ejemplo mas 500M a la memoria
+```poweshell
+lvextend /dev/rhel/swap -l +500M -r -t
+```
+> O setear la memoria a 500M 
+```poweshell
+lvextend /dev/rhel/swap -l 500M -r -t
+```
 
 
-
-
+ 
 
 
 ## GESTION DE USUARIOS LOCALES
