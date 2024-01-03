@@ -396,6 +396,38 @@ lvextend /dev/rhel/swap -l +500M -r -t
 lvextend /dev/rhel/swap -l 500M -r -t
 ```
 
+## CREAR VOLUMENES CON STRATIS
+
+##### Comando para un volumen por defecto xfs con stratis
+```poweshell
+stratis pool create pool1 /dev/sdb
+```
+##### Comando extender un volumen  xfs  stratis
+```poweshell
+stratis pool add-data  pool1 /dev/sdc
+```
+##### Comando para crear un filesystem para un volumen xfs con stratis
+```poweshell
+stratis filesystem create pool1 file_system1
+```
+##### Comando para crear un snapshot del filesystem para un volumen xfs con stratis
+```poweshell
+stratis filesystem snapshot pool1 file_system1 snapshot1_file_system1
+```
+##### Comando listar el UUID del volumen xfs con stratis
+```poweshell
+lsblk --output=UUID /dev/stratis/pool1/file_system1
+```
+##### Comando para montar el volumen creado con stratis en /dir_stratis
+```poweshell
+echo "UUID=2f7a87d8-769c-4e2b-ae44-96d9832b4085 /dir_stratis xfs defaults,x-systemd.requires=stratisd.service 0 0" /etc/fstab
+```
+
+
+
+
+
+
 
  
 
