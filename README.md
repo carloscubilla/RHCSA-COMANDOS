@@ -423,6 +423,10 @@ lsblk --output=UUID /dev/stratis/pool1/file_system1
 echo "UUID=2f7a87d8-769c-4e2b-ae44-96d9832b4085 /dir_stratis xfs defaults,x-systemd.requires=stratisd.service 0 0" /etc/fstab
 ```
 
+##### Comando para crear archivos de 2 GB
+```poweshell
+dd if=/dev/urandom of=/dir_stratis/archivo2.txt bs=1M count=2048
+```
 
 
 
