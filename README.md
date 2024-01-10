@@ -428,6 +428,47 @@ echo "UUID=2f7a87d8-769c-4e2b-ae44-96d9832b4085 /dir_stratis xfs defaults,x-syst
 dd if=/dev/urandom of=/dir_stratis/archivo2.txt bs=1M count=2048
 ```
 
+# REVISION DE ARCHIVOS SYSLOG
+##### Comando para crear una linea de log del tipo user.debug
+```poweshell
+logger -p user.debug "Debug Message Test"
+```
+
+
+
+
+
+
+
+
+
+# GESTION DE ARCHIVOS
+
+## Gestión de archivos tar comprimidas
+
+##### Comando para comprimir un archivo 
+```poweshell
+tar -czf /tmp/etc.tar.gz /etc
+```
+##### Comando para un test para descomprimir un archivo 
+```poweshell
+tar -tzf /tmp/etc.tar.gz
+```
+
+##### Comando para descomprimir un archivo 
+```poweshell
+tar -xzf /tmp/etc.tar.gz
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
