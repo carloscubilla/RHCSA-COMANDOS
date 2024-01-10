@@ -428,11 +428,20 @@ echo "UUID=2f7a87d8-769c-4e2b-ae44-96d9832b4085 /dir_stratis xfs defaults,x-syst
 dd if=/dev/urandom of=/dir_stratis/archivo2.txt bs=1M count=2048
 ```
 
+Programación de un trabajo de usuario diferido
+
+
+
+
+
+
+
 # REVISION DE ARCHIVOS SYSLOG
 ##### Comando para crear una linea de log del tipo user.debug
 ```poweshell
 logger -p user.debug "Debug Message Test"
 ```
+
 
 
 
