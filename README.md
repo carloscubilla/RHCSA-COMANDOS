@@ -450,7 +450,6 @@ logger -p user.debug "Debug Message Test"
 
 
 
-
 # GESTION DE ARCHIVOS
 
 ## Gestión de archivos tar comprimidas
@@ -475,10 +474,35 @@ rsync -av root@servera:/etc /configsync
 ```
 
 
+#Ajuste del rendimiento del sistema
+##### Comando para instalar tuned
+```poweshell
+dnf install tuned
+```
+##### Comando para  enumerar todos los perfiles de ajuste disponibles
+```poweshell
+tuned-adm list
+```
+##### Comando tuned-adm profile_info para obtener información sobre un perfil determinado.
+```poweshell
+tuned-adm profile_info network-latency
+```
+##### Comando tuned-adm profile profilename para cambiar a un perfil diferente que se adapte mejor a los requisitos de ajuste actuales del sistema.
+```poweshell
+tuned-adm profile throughput-performance
+```
+##### Comando tuned-adm recommend puede recomendar un perfil de ajuste para el sistema. El sistema usa este mecanismo para determinar el perfil predeterminado después de la instalación.
+```poweshell
+tuned-adm recommend
+```
 
-
-
-
+##### Comando para revertir los cambios de configuración que aplica el perfil actual, cambie a otro perfil o desactive el daemon ajustado. Desactive la actividad de ajuste de la aplicación tuned con el comando tuned-adm off.
+```poweshell
+tuned-adm off
+```
+```poweshell
+tuned-adm active
+```
 
 
 
