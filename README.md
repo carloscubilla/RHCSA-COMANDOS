@@ -503,7 +503,10 @@ tuned-adm off
 ```poweshell
 tuned-adm active
 ```
-
+##### Comando para ajustar el nivel de nice de cada proceso en 10. Use los valores de PID correctos para sus procesos de la salida del comando anterior.
+```poweshell
+sudo renice -n 10 <pid> <pid>
+```
 
 
 
