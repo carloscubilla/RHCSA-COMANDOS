@@ -468,6 +468,12 @@ tar -tzf /tmp/etc.tar.gz
 ```poweshell
 tar -xzf /tmp/etc.tar.gz
 ```
+##### Comando para sincronizar archivos o directorios 
+> Se utiliza "get" para obtener y "put" para enviar los archivos
+```poweshell
+rsync -av root@servera:/etc /configsync
+```
+
 
 
 
