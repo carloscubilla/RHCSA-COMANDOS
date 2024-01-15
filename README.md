@@ -532,6 +532,10 @@ semanage fcontext -a -t httpd_sys_content_t '/custom(/.*)?'
 ```poweshell
 setsebool httpd_enable_homedirs on
 ```
+##### Comando para para ver si algún booleano restringe el acceso a los directorios para el servicio httpd.
+```poweshell
+getsebool -a | grep home
+```
 ##### Comando para verifica el ajuste de la política de SELinux con booleanos
 ```poweshell
 semanage boolean -l | grep httpd_enable_homedirs
