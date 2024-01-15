@@ -544,6 +544,25 @@ semanage boolean -l | grep httpd_enable_homedirs
 ```poweshell
 semanage boolean -l -C
 ```
+##### Comando para buscar mensaje de errores de que arroja SElinux
+> Buscar /sealert
+```poweshell
+less /var/log/messages
+```
+##### Comando para ejecutar lo sugerido por SElinux
+```poweshell
+sealert -l 35c9e452-2552-4ca3-8217-493b72ba6d0b
+```
+
+##### Comando leer lo que hay en /var/log/audit/audit.log
+> La opción -m busca en el tipo de mensaje. La opción ts busca en función del tiempo. La siguiente entrada identifica el proceso relevante y el archivo que causa la alerta
+```poweshell
+ausearch -m AVC -ts recent
+```
+
+
+
+
 
 
 
