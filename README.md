@@ -508,6 +508,15 @@ tuned-adm active
 sudo renice -n 10 <pid> <pid>
 ```
 
+# CONTROL DE CONTEXTOS DE ARCHIVO DE SELinux
+##### Comando para DEFINIR una regla de contextos de archivos de SELinux que defina el tipo de contexto en httpd_sys_content_t para el directorio /custom y todos los archivos en él.
+```poweshell
+semanage fcontext -a -t httpd_sys_content_t '/custom(/.*)?'
+```
+##### Comando para CORREGIR los contextos de archivos en el directorio /custom.
+```poweshell
+semanage fcontext -a -t httpd_sys_content_t '/custom(/.*)?'
+```
 
 
 
