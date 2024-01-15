@@ -509,6 +509,15 @@ sudo renice -n 10 <pid> <pid>
 ```
 
 # CONTROL DE CONTEXTOS DE ARCHIVO DE SELinux
+##### Comando para ver en que estado se encuentra SElinux
+```poweshell
+getenforce
+```
+##### Comando para cambiar el estado de SElinux
+> usage:  setenforce [ Enforcing | Permissive | 1 | 0 ]
+```poweshell
+setenforce 0
+```
 ##### Comando para DEFINIR una regla de contextos de archivos de SELinux que defina el tipo de contexto en httpd_sys_content_t para el directorio /custom y todos los archivos en él.
 ```poweshell
 semanage fcontext -a -t httpd_sys_content_t '/custom(/.*)?'
