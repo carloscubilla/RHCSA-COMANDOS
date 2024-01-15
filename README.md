@@ -526,9 +526,20 @@ semanage fcontext -a -t httpd_sys_content_t '/custom(/.*)?'
 ```poweshell
 semanage fcontext -a -t httpd_sys_content_t '/custom(/.*)?'
 ```
+# ***
 
-
-
+##### Comando para ajustar la política de SELinux con booleanos
+```poweshell
+setsebool httpd_enable_homedirs on
+```
+##### Comando para verifica el ajuste de la política de SELinux con booleanos
+```poweshell
+semanage boolean -l | grep httpd_enable_homedirs
+```
+##### Comando para verifica el ajuste de la política de SELinux con booleanos (Resultao igual al anterior comando pero sin usar grep)
+```poweshell
+semanage boolean -l -C
+```
 
 
 
