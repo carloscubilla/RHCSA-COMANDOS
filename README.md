@@ -522,6 +522,10 @@ setenforce 0
 ```poweshell
 semanage fcontext -a -t httpd_sys_content_t '/custom(/.*)?'
 ```
+##### Comando para ver el contexto de SELinux para los directorios
+```poweshell
+ls -dZ /custom
+```
 ##### Comando para CORREGIR los contextos de archivos en el directorio /custom.
 ```poweshell
 restorecon -R /custom
