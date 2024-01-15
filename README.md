@@ -524,7 +524,7 @@ semanage fcontext -a -t httpd_sys_content_t '/custom(/.*)?'
 ```
 ##### Comando para CORREGIR los contextos de archivos en el directorio /custom.
 ```poweshell
-semanage fcontext -a -t httpd_sys_content_t '/custom(/.*)?'
+restorecon -R /custom
 ```
 # ***
 
