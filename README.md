@@ -454,10 +454,29 @@ logger -p user.debug "Debug Message Test"
 
 ## Gestión de archivos tar comprimidas
 
-##### Comando para comprimir un archivo 
+##### Comando para comprimir un archivo gz
 ```poweshell
 tar -czf /tmp/etc.tar.gz /etc
 ```
+##### Comando para comprimir un archivo bz2 
+```poweshell
+tar -cjf /tmp/etc.tar.gz /etc
+```
+##### Comando para comprimir un archivo xz 
+```poweshell
+tar -cJf /tmp/etc.tar.gz /etc
+```
+
+
+##### Comando para comprimir un archivo con cualquier extension.
+> Use el sufijo del archivo para determinar el algoritmo que se usará.
+```poweshell
+tar -caf /tmp/etc.tar.gz /etc
+```
+
+
+
+
 ##### Comando para un test para descomprimir un archivo 
 ```poweshell
 tar -tzf /tmp/etc.tar.gz
