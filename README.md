@@ -281,6 +281,11 @@ parted /dev/sda unit MB print free
 parted /dev/sdb mklabel gpt
 ```
 
+##### Comando para asignar el tipo de particionamiento para el disco, en este caso msdos
+```poweshell
+parted /dev/sdb mklabel msdos
+```
+
 ##### Comando para crear una particion en el disco sdc
 ```poweshell
 parted /dev/sdc mkpart primary ext4 200MB 400MB
@@ -295,6 +300,29 @@ udevadm settle
 ```poweshell
 partprobe -s
 ```
+
+##### Comando para establecer el tipo de partición lvm.
+```poweshell
+parted /dev/vdb set 2 lvm on
+```
+
+##### Comando para para cambiar el tamaño del LV.
+```poweshell
+lvextend -L 768M /dev/serverb_01_vg/serverb_01_lv
+```
+##### Comando para para cambiar el tamaño del LV.
+> Usamos -r al final para que haga el rezize automaticamente
+```poweshell
+lvextend -L 768M /dev/serverb_01_vg/serverb_01_lv -r
+```
+##### Comando para para cambiar el tamaño del LV.
+> Funciona al igual que la opcion -r
+```poweshell
+xfs_growfs /storage/data1
+```
+
+
+
 
 
 ### CREACION DE PARTICIONES CON "fdisk" 
