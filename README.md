@@ -635,3 +635,46 @@ chage -E 2022-09-06 operator1
 ```poweshell
 chage -l cmcf
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+##### Comando para verificar la zona horaria
+```poweshell
+timedatectl
+```
+##### Comando para actualizae la zona horaria a America/Port-au-Prince.
+```poweshell
+sudo timedatectl set-timezone America/Port-au-Prince
+```
+##### Comando para sincronizar la hora del sistema con el servidor classroom.example.com como la fuente de hora de NTP.
+> Se agrega "server classroom.example.com iburst"    (iburst  para acelerar la sincronización de tiempo inicial)
+```poweshell
+vim /etc/chrony.conf
+```
+##### Comando para habilitar la sincronización de tiempo en la máquina servera.
+> El comando activa el servidor NTP con la configuración modificada en el archivo de configuración /etc/chrony.conf. El comando puede activar el servicio chronyd o el servicio ntpd según lo que esté instalado actualmente en el sistema.
+```poweshell
+vim /etc/chrony.conf
+```
+##### Comando para verificar que la máquina servera esté sincronizando actualmente sus ajustes de hora con la fuente de hora de classroom.example.com.
+> En el resultado se muestra un asterisco (*) en el campo de estado de la fuente (S) para la fuente de hora de NTP classroom.example.com. El asterisco indica que la hora del sistema local está sincronizada de forma correcta con la fuente de hora de NTP.
+```poweshell
+chronyc sources -v
+```
+
+
+
+
+
+
+
+
