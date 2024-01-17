@@ -612,6 +612,29 @@ ausearch -m AVC -ts recent
 ```
 
 
+# ACCESO AL ALMACENAMIENTO CONECTADO A LA RED.
+
+##### Comando para instalar autofs
+```poweshell
+dnf install autofs
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
