@@ -733,7 +733,7 @@ vim /etc/chrony.conf
 ##### Comando para habilitar la sincronización de tiempo en la máquina servera.
 > El comando activa el servidor NTP con la configuración modificada en el archivo de configuración /etc/chrony.conf. El comando puede activar el servicio chronyd o el servicio ntpd según lo que esté instalado actualmente en el sistema.
 ```poweshell
-vim /etc/chrony.conf
+sudo timedatectl set-ntp true
 ```
 ##### Comando para verificar que la máquina servera esté sincronizando actualmente sus ajustes de hora con la fuente de hora de classroom.example.com.
 > En el resultado se muestra un asterisco (*) en el campo de estado de la fuente (S) para la fuente de hora de NTP classroom.example.com. El asterisco indica que la hora del sistema local está sincronizada de forma correcta con la fuente de hora de NTP.
