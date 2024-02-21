@@ -746,5 +746,23 @@ chronyc sources -v
 
 
 
+# MANEJO DE CONTENEDORES PODMAN
+
+##### Comando para instalar el metapaquete de contenedores
+```poweshell
+dnf install containet-tools
+```
+
+##### Comando para listar contenedores que se estan ejecutando
+```poweshell
+podman ps
+```
+##### Comando para listar contenedores que se estan ejecutando y tambien que no se estan ejecutando
+```poweshell
+podman ps -a
+```
+
+
+
 
 
