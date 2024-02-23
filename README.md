@@ -762,6 +762,62 @@ podman ps
 podman ps -a
 ```
 
+##### Comando muestra la información de configuración de la utilidad podman, incluidos sus registros configurados.
+```poweshell
+podman info
+```
+##### Comando para mostrar una lista de imágenes en los registros configurados que contienen el paquete python-38.
+```poweshell
+podman search python-38
+```
+##### Comando para examinar diferentes formatos de imagen de contenedor desde un directorio local o un registro remoto sin descargar la imagen.
+```poweshell
+skopeo inspect docker://registry.access.redhat.com/ubi8/python-38
+```
+##### Comando para descargar la imagen seleccionada en la máquina local.
+```poweshell
+podman pull registry.access.redhat.com/ubi8/python-38
+```
+##### Comando para mostrar las imágenes locales.
+```poweshell
+podman images
+```
+##### Comando para compilar la imagen. La sintaxis para el comando podman build es la siguiente:
+```poweshell
+podman build -t NAME:TAG DIR
+```
+
+##### Comando para ver la información de bajo nivel de la imagen de contenedor y verificar que su contenido coincida con los requisitos del contenedor.
+```poweshell
+podman inspect localhost/python36:1.0
+```
+
+
+##### Comando para inciar el contenedor.
+```poweshell
+podman start <container_name>
+```
+
+##### Comando para crear y ejecutar el contenedor más tarde. El comando podman run ejecuta un proceso dentro de un contenedor y este proceso inicia el nuevo contenedor.
+```poweshell
+podman run -d --name python38 \
+registry.access.redhat.com/ubi8/python-38 \
+sleep infinity
+```
+
+
+
+##### Comando para ejecutar un comando en un contenedor en ejecución.
+```poweshell
+podman exec python38 ps -ax
+```
+
+
+##### Comando para copiar archivos y carpetas entre los sistemas de archivos del host y del contenedor.
+```poweshell
+podman exec python38 ps -ax
+```
+
 
 
 
