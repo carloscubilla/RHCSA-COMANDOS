@@ -981,7 +981,7 @@ podman network inspect backend
 
 ##### Comando para obtener la información IP de la red backend.
 ```poweshell
-podman network inspect backend
+podman inspect db01
 ```
 
 
