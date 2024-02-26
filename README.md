@@ -815,9 +815,32 @@ podman exec python38 ps -ax
 
 ##### Comando para copiar archivos y carpetas entre los sistemas de archivos del host y del contenedor.
 ```poweshell
-podman exec python38 ps -ax
+podman cp /tmp/hello.sh python38:/tmp/hello.sh
 ```
 
+
+##### Comando para ejecutar desde el contenedor.
+```poweshell
+podman exec python38 bash /tmp/hello.sh
+```
+
+
+##### Comando para detener un contenedor.
+```poweshell
+podman stop python38
+```
+
+##### Comando para eliminar el contenedor.
+```poweshell
+podman rm python38
+```
+
+
+##### Comando para eliminar contenedores e imágenes.
+> Tener en cuenta que no debe estar corriendo ningun contenedor con esa imagen.
+```poweshell
+podman rmi registry.access.redhat.com/ubi8/python-38
+```
 
 
 
