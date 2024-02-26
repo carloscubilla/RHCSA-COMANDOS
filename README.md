@@ -842,6 +842,157 @@ podman rm python38
 podman rmi registry.access.redhat.com/ubi8/python-38
 ```
 
+##### Comando para investigar el motivo del estado del contenedor.
+```poweshell
+podman container logs db01
+```
+
+##### Se utiliza "-e" para pasar la variable de entorno al contenedor
+```poweshell
+podman run -d --name db01 \
+-e MYSQL_USER=student \
+-e MYSQL_PASSWORD=student \
+-e MYSQL_DATABASE=dev_data \
+-e MYSQL_ROOT_PASSWORD=redhat \
+registry.lab.example.com/rhel8/mariadb-105
+```
+
+
+##### Comando para ejecutar un comando dentro del espacio de nombres del usuario. Para obtener la asignación de UID para su espacio de nombres de usuario, use el comando podman unshare cat.
+```poweshell
+podman unshare cat /proc/self/uid_map
+```
+
+
+##### Comando para ver el UID y el GID del usuario mysql dentro del contenedor que se está ejecutando con almacenamiento efímero.
+```poweshell
+podman exec -it db01 grep mysql /etc/passwd
+```
+
+
+##### Comando para establecer el contexto de SELinux para el directorio /home/user/db_data cuando lo monte como almacenamiento persistente para el directorio /var/lib/mysql.
+> podman run -v /home/user/db_data:/var/lib/mysql:Z para establecer el contexto de SELinux para el directorio /home/user/db_data
+```poweshell
+podman run -d --name db01 \
+-e MYSQL_USER=student \
+-e MYSQL_PASSWORD=student \
+-e MYSQL_DATABASE=dev_data \
+-e MYSQL_ROOT_PASSWORD=redhat \
+-v /home/user/db_data:/var/lib/mysql:Z \
+registry.lab.example.com/rhel8/mariadb-105
+```
+## Asignar una asignación de puertos a contenedores.
+
+##### Comando -p del comando podman run sirve para definir una asignación de puertos desde el puerto 13306 desde el host del contenedor al puerto 3306 en el contenedor db01.
+> 
+```poweshell
+podman run -d --name db01 \
+-e MYSQL_USER=student \
+-e MYSQL_PASSWORD=student \
+-e MYSQL_DATABASE=dev_data \
+-e MYSQL_ROOT_PASSWORD=redhat \
+-v /home/user/db_data:/var/lib/mysql:Z \
+-p 13306:3306 \
+registry.lab.example.com/rhel8/mariadb-105
+```
+
+
+##### Comando -a del comando podman port para mostrar todas las asignaciones de puertos de contenedores en uso.
+```poweshell
+podman port -a
+```
+
+##### También puede usar el comando podman port db01 para mostrar los puertos asignados para el contenedor db01.
+```poweshell
+podman port db01
+```
+
+
+##### Comando para verificar qué backend de red se usa, ejecute el siguiente comando podman info.
+```poweshell
+podman info --format {{.Host.NetworkBackend}}
+```
+
+##### Comando para crear una red habilitada para DNS.
+> El comando podman network create para crear la red denominada db_net y especifique la subred como 10.87.0.0/16 y la puerta de enlace como 10.87.0.1.
+> Si no especifica las opciones --gateway o --subnet, se crean con los valores predeterminados.
+```poweshell
+podman network create --gateway 10.87.0.1 \
+--subnet 10.87.0.0/16 db_net
+```
+
+
+
+##### Comando para mostrar información acerca de una red específica. Use el comando podman network inspect para verificar que la puerta de enlace y la subred se hayan configurado correctamente y que la nueva red db_net esté habilitada para DNS.
+```poweshell
+podman network inspect db_net
+```
+
+
+
+##### Comando para agregar la red habilitada para DNS db_net a un nuevo contenedor con la opción --network del comando podman run.
+```poweshell
+podman run -d --name db01 \
+-e MYSQL_USER=student \
+-e MYSQL_PASSWORD=student \
+-e MYSQL_DATABASE=dev_data \
+-e MYSQL_ROOT_PASSWORD=redhat \
+-v /home/user/db_data:/var/lib/mysql:Z \
+-p 13306:3306 \
+--network db_net \
+registry.lab.example.com/rhel8/mariadb-105
+```
+
+##### Comando para instalar estas utilidades en el contenedor con el comando podman exec.
+```poweshell
+podman exec -it db01 dnf install -y iputils iproute
+```
+
+##### Comando para probar ping.
+```poweshell
+podman exec -it db01 ping -c3 client01
+```
+
+
+##### Comando para verificar que las direcciones IP en cada contenedor coincidan con la resolución de DNS con el comando podman exec.
+```poweshell
+podman exec -it db01 ip a | grep 10.8
+```
+
+
+##### Comando para crear la red backend.
+```poweshell
+podman network create backend
+```
+
+##### Comando para ver todas las redes de Podman.
+```poweshell
+podman network ls
+```
+
+
+##### Comando para obtener la información IP de la red backend.
+> La subred y la puerta de enlace no se especificaron con las opciones --﻿gateway y --subnet del comando podman network create.
+```poweshell
+podman network inspect backend
+```
+
+
+
+##### Comando para obtener la información IP de la red backend.
+```poweshell
+podman network inspect backend
+```
+
+
+##### Comando para conectar redes adicionales a un contenedor cuando se está ejecutando.
+```poweshell
+podman network connect backend db01
+```
+
+
+
+
 
 
 
