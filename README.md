@@ -990,9 +990,48 @@ podman inspect db01
 podman network connect backend db01
 ```
 
+## Gestión de contenedores como servicios del sistema
+
+
+##### Comando para GENERAR EL ARCHIVO DE SERVICIO DEL CONTENEDOR.
+> Verifique la salida del comando podman generate systemd y ejecute el comando anterior con la opción --files para crear el archivo de usuario systemd en el directorio actual. Debido a que el contenedor webserver1 usa el almacenamiento persistente, usted opta por usar el comando podman generate systemd con la opción --new. A continuación, cree el directorio ~/.config/systemd/user/ y mueva el archivo a esta ubicación.
+```poweshell
+podman generate systemd --name webserver1 --new --files
+```
+
+##### Debemos de crear el directorio " ~/.config/systemd/user/ " y movel alli el archivo generado.
+```poweshell
+mkdir -p ~/.config/systemd/user/
+```
+```poweshell
+mv container-webserver1.service ~/.config/systemd/user/
+```
 
 
 
+##### Comando para gestionar el contenedor.
+```poweshell
+systemctl --user daemon-reload
+```
+
+##### Comando para iniciar el contenedor.
+```poweshell
+systemctl --user start container-webserver1.service
+```
+##### Comando para ver el estado del contenedor.
+```poweshell
+systemctl --user status container-webserver1.service
+```
 
 
 
+##### Comando para configurar el servicio de usuario systemd para que persista después de que se cierre la última sesión de usuario del servicio configurado.
+```poweshell
+loginctl enable-linger
+```
+
+
+##### Comando para verificar el status de la configuracion 
+```poweshell
+loginctl show-user appdev-adm
+```
